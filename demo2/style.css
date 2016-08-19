@@ -1,0 +1,47 @@
+.msg {
+    transition: all .3s ease;
+    height: 30px;
+    padding: 10px;
+    background-color: #eee;
+    overflow: hidden;
+}
+.msg.v-enter, .msg.v-leave {
+    height: 0;
+    padding: 0 10px;
+    opacity: 0;
+}
+.animated {
+    display: inline-block;
+}
+
+.animated.v-enter {
+    animation: fadein .5s;
+}
+
+.animated.v-leave {
+    animation: fadeout .5s;
+}
+
+@keyframes fadein {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeout {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(0);
+    }
+}

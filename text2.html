@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/vue/1.0.24/vue.min.js"></script>
+
+</head>
+<body>
+    <div id="example-2">
+        // 阻止单击事件冒泡
+        <a v-on:click.stop="doThis"></a>
+        // 提交事件不再重载
+        <a v-on:submit.prevent="doSubmit"></a>
+        <!-- 修饰符可以串联 -->
+        <a v-on:click.stop.prevent="doThat"></a>
+        <!-- 只有修饰符 -->
+        <form v-on:submit.prevent="doThis"></form>
+    </div>
+    <script>
+        new Vue({
+            el:'#example-2',
+            methods:{
+                say:function (msg,event) {
+                    event.preventDefault()
+                }
+            }
+        })
+    </script>
+</body>
+</html>

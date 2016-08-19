@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app1">
+    {{ message1 }}
+</div>
+<div id="app2">
+    <p>{{ message2 }}</p>
+    <input v-model="message2">
+</div>
+<div id="app3">
+    <ul>
+        <li v-for="item in items">
+            {{ item.name + ' + ' + item.option }}
+        </li>
+    </ul>
+</div>
+<div id="app4">
+    <select>
+        <option v-for="option in options">
+            {{ option.text + ' + ' + option.option }}
+        </option>
+    </select>
+</div>
+<h1>app5</h1>
+<div id="app5">
+    <p>{{ message5 }}</p>
+    <button @click="reverseMessage">Reverse Message</button>
+</div>
+<div id="app">
+    <input type="text" v-model="newTodo" @keyup.enter="addTodo">
+    <ul>
+        <li v-for="todo in todos">
+            <span>{{ todo.text }}</span>
+            <button @click="removeTodo($index)">X</button>
+        </li>
+    </ul>
+</div>
+<div id="example-1">
+    Hello {{name}}
+</div>
+<div id="example-2">
+    <p v-if="greeting">Hello!</p>
+</div>
+
+<div id="appMain">
+    <app-nav></app-nav>
+    <app-view>
+        <app-sidebar></app-sidebar>
+        <app-content></app-content>
+    </app-view>
+</div>
+
+<script src="js/vue.min.js"></script>
+<script>
+    var MyComponent = Vue.extend({});
+    var myComponentInstance = new MyComponent();
+    var data3 = {a:1};
+
+
+    var data2 = ['app2: Hello Vue.js!'];
+    var data1 = ['app1: Hello Vue.js!'];
+    var exampleData = { name:'Vue.js Here' };
+    var vm = new Vue({
+        el: "body",
+        data: {
+            newTodo: '',
+            data3:data3.a,
+            message1: data1,
+            message2: data2,
+            message5: 'app5:Hello Vue.js!',
+            todos: [
+                {text: 'Add some todos 1 '},
+                {text: 'Add some todos 2 '},
+                {text: 'Add some todos 3 '},
+                {text: 'Add some todos 4 '}
+            ],
+            options: [
+                {text: 'options1', option: 'one', name: 'tom'},
+                {text: 'options2', option: 'two', name: 'lucy'},
+                {text: 'options3', option: 'three', name: 'lily'},
+                {text: 'options4', option: 'three', name: 'lily'},
+                {text: 'options5', option: 'three', name: 'lily'},
+                {text: 'options6', option: 'three', name: 'lily'}
+            ],
+            items: [
+                {text: 'text1', option: 'one', name: 'tom'},
+                {text: 'text2', option: 'two', name: 'lucy'},
+                {text: 'text3', option: 'three', name: 'lily'}
+            ],
+            name: exampleData.name,
+            greeting: false
+        },
+        methods: {
+            addTodo: function () {
+                var text = this.newTodo.trim();
+                if (text) {
+                    this.todos.push({text: text});
+                    this.newTodo = ''
+                }
+            },
+            removeTodo: function (index) {
+                this.todos.splice(index, 1);
+            },
+            reverseMessage: function () {
+                this.message5 = this.message5.split('').reverse().join('')
+                console.log("sfdasdf");
+                alert("sdfadsf");
+            }
+
+        }
+
+    })
+
+</script>
+<script src="js/script.js"></script>
+</body>
+</html>

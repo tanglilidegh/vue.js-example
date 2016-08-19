@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<form action="" id="demo">
+    <p><input type="text" v-model="msg">{{msg}}</p>
+    <p><input type="checkbox" v-model="checked">{{checked ? "yes" : "no"}}</p>
+    <p>
+        <input type="radio" name="picked" value="one" v-model="picked">
+        <input type="radio" name="picked" value="two" v-model="picked">
+        {{picked}}
+    </p>
+    <p>
+        <select name="" id="" v-model="selected">
+            <option>one</option>
+            <option>two</option>
+            <option>three</option>
+        </select>
+        {{selected}}
+    </p>
+    <p>
+        <select name="" v-model="multiSelect" multiple>
+            <option>one</option>
+            <option>two</option>
+            <option>three</option>
+        </select>
+    </p>
+    <pre>{{$data | json 4}}</pre>
+</form>
+<script src="vue.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
