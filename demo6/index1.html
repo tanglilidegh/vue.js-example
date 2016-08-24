@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo6</title>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<!--只处理单次插值-->
+<span>This will never change: {{* mes }}</span>
+<!--了输出真的 HTML 字符串，需要用三 Mustache 标签-->
+<div>{{{ raw_html }}</div>
+<!--Mustache 标签也可以用在 HTML 特性 (Attributes) 内-->
+<!--Vue.js 在数据绑定内支持全功能的 JavaScript 表达式-->
+{{ number + 1 }}
+{{ ok ? 'YES' : 'NO' }}
+{{ message:split('').reverse().join('')}}
+<!--Vue.js 允许在表达式后添加可选的“过滤器 (Filter) ”，以“管道符”指示：-->
+{{ message | capitalize }}
+<!--过滤器可以串联：-->
+{{ message | filterA | filterB }}
+<!--过滤器也可以接受参数：-->
+{{ message | filterA 'arg1' arg2 }}
+
+<a v-bind:href="url"></a>
+<a href="{{url}}"></a>
+<a v-bind:href.literal="/a/b/c"></a>
+
+<!-- v-bind 缩写 -->
+<!-- 完整语法 -->
+<a v-bind:href="url"></a>
+
+<!-- 缩写 -->
+<a :href="url"></a>
+
+<!-- 完整语法 -->
+<button v-bind:disabled="someDynamicCondition">Button</button>
+
+<!-- 缩写 -->
+<button :disabled="someDynamicCondition">Button</button>
+
+<div id="item-{{ id }}"></div>
+<script src="js/vue.min.js"></script>
+<script>
+    var vm = new Vue({
+        data: {
+            a:1
+        },
+        created: function () {
+            console.log('a is: ' + this.a);
+        }
+    })
+
+
+</script>
+</body>
+</html>

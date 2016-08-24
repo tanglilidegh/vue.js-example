@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo6</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<ul v-cloak class="demo">
+    <li v-for="value in object">
+        {{ $key }} : {{ value }}
+    </li>
+</ul>
+<hr>
+<ul v-cloak class="demo">
+    <li v-for="(key, val) in object">
+        {{ $key }} : {{ val }}
+    </li>
+</ul>
+<hr>
+<div>
+    <span v-for="n in 10">{{ n }}</span>
+</div>
+<hr>
+
+<div>
+    <button v-on:click="greet">Greet</button>
+</div>
+<hr>
+<div>
+    <button v-on:click="say('hi')">Say Hi</button>
+    <button v-on:click="say('what')">Say What</button>
+</div>
+<hr>
+<button v-on:click="sayHello('hello!', $event)">Submit</button>
+<hr>
+<p><a v-on:click="doThis">doThis1</a></p>
+<p><a v-on:click.stop="doThis">doThis</a></p>
+<form v-on:submit.prevent="onSubmit">onSubmit</form>
+<a v-on:click.stop.prevent="doThat">doThat</a>
+<form v-on:submit.prevent>submit</form>
+<div v-on:click.self="doThat">....</div>
+<!-- 只有在 keyCode 是 13 时调用 vm.submit() -->
+<input v-on:keyup.13="submit">
+<!-- 同上 -->
+<input v-on:keyup.enter="submit">
+<!-- 缩写语法 -->
+<input @keyup.enter="submit">
+
+<!-- ===================================================== -->
+<script src="js/vue.min.js"></script>
+<script>
+    Vue.directive('on').keyCodes.f1 = 112;
+    var vm = new Vue({
+        el: 'body',
+        data: {
+            object: {
+                FirstName: 'lily',
+                LastName: 'Tom',
+                Age: 30
+            },
+            name: 'Vue.js'
+        },
+        methods: {
+            greet: function (event) {
+                alert('Hello ' + this.name + '!');
+                alert(event.target.tagName)
+            },
+            say: function (meg) {
+                alert(meg);
+            },
+            sayHello:function (meg, event){
+                event.preventDefault();
+            },
+            doThis:function () {
+                alert("doThis");
+            }
+        }
+    })
+</script>
+</body>
+</html>

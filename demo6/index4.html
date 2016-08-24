@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo6</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<!--<h1 v-if="ok">Yes</h1>-->
+<!--<h1 v-cloak v-else>Hello World!</h1>-->
+<!--<template v-if="ok">-->
+<!--<h1>Title</h1>-->
+<!--<p>Paragraph 1</p>-->
+<!--<p>Paragraph 2</p>-->
+<!--</template>-->
+<!--<template v-else>-->
+<!--<h1>Title2</h1>-->
+<!--<p>Paragraph 3</p>-->
+<!--<p>Paragraph 4</p>-->
+<!--</template>-->
+
+<!--<template v-if="ok">-->
+<!--<h1>Title3</h1>-->
+<!--<p>Paragraph 5</p>-->
+<!--<p>Paragraph 6</p>-->
+<!--</template>-->
+<!--<p v-show="yes">P元素</p>-->
+
+<!--<hr>-->
+<!--<div v-if="(Math:random()*10) > 0.5">Sorry</div>-->
+<!--<div v-else> Not sorry</div>-->
+<!--<hr>-->
+<!--<custom-component v-show="condition"></custom-component>-->
+<!--<p v-show="!condition">这可能也是一个组件</p>-->
+<!--<hr>-->
+<!--<ul>-->
+<!--<li v-for="item in items">{{ item.message }}</li>-->
+<!--</ul>-->
+<!--<hr>-->
+<!--<ul>-->
+<!--<li v-for="text in list">-->
+<!--{{ parentMessage }} - {{ $index }} - {{ text.message }}-->
+<!--</li>-->
+<!--</ul>-->
+<!--<hr>-->
+
+<!--<div v-for="(index, text) of list">-->
+<!--{{ index }} {{ text.message }}-->
+<!--</div>-->
+
+<!--<hr>-->
+
+<!--<ul>-->
+<!--<template v-for="item in items">-->
+<!--<li>-->
+<!--<p>{{ item.message }}</p>-->
+<!--<span>{{ $index }}</span>-->
+<!--</li>-->
+<!--</template>-->
+<!--</ul>-->
+<hr>
+
+<!--<div v-for="test in texts" track-by="$index">-->
+<!--<span>{{ test.test }}</span>-->
+<!--<span>{{ $index }}</span>-->
+<!--</div>-->
+<hr>
+<ul>
+    <template v-for="item in items">
+        <li>
+            <p>{{ item.message }}</p>
+            <!--<span>{{ $index }}</span>-->
+        </li>
+    </template>
+</ul>
+
+<!-- ============================================ -->
+<script src="js/vue.min.js"></script>
+<script>
+    var vm = new Vue({
+        el: 'body',
+        data: {
+            ok: true,
+            yes: true,
+            items: [
+                {message: 'Foo1'},
+                {message: 'Bar2'},
+                {message: 'Foo3'},
+                {message: 'Bar4'},
+                {message: 'Foo5'},
+                {message: 'Bar6'},
+                {message: 'Foo1'},
+                {message: 'Bar2'},
+                {message: 'Foo3'},
+                {message: 'Bar4'},
+                {message: 'Foo5'},
+                {message: 'Bar6'},
+                {message: 'Bar7'}
+            ],
+            parentMessage: 'Parent',
+            list: [
+                {message: 'Text1'},
+                {message: 'Text2'},
+                {message: 'Text3'},
+                {message: 'Text1'},
+                {message: 'Text2'},
+                {message: 'Text3'}
+            ],
+            texts: [
+                {_uid: '88f869d', test: 'test1'},
+                {_uid: '7496c10', test: 'test2'},
+                {_uid: '7496c09', test: 'test3'}
+            ]
+        }
+    });
+    //    vm.items.push({message:'BaZ'});
+    //    vm.items.shift({message:'Foo'});
+    //    vm.items.pop({message:'Bar'});
+
+    //    vm.items = vm.items.filter(function (item) {
+    //        return item.message.match(/Foo/);
+    //    })
+
+//    vm.items.$set(0, { childMsg: 'Changed!'});
+//var index = this.items.indexOf(item);
+//    if(index !== -1){
+//        this.items.splice(index, 1);
+//    }
+
+</script>
+</body>
+</html>

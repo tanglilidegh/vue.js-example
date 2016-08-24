@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo6</title>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+        .class-a{
+            color: #cef;
+        }
+        .class-b{
+             border: 1px solid #cef;
+         }
+        .class-c{
+            width: 300px;
+            height: 50px;
+            padding: 20px;
+            background-color: aquamarine;
+        }
+        .static{
+            font-size: 22px;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<!--<div class="static" v-cloak v-bind:class="{'class-a': isA, 'class-b': isB}">这是一段文字</div>-->
+<!--<hr>-->
+<!--<div v-bind:class="classObject">-->
+    <!--测试文字-->
+<!--</div>-->
+
+<hr>
+<!--<div v-bind:class="[classA,classC]">-->
+    <!--这里是第三个DIV的测试文字-->
+<!--</div>-->
+
+<!--<div v-bind:class="[classA, isB ? classC : '']">这里是第四个DIV的测试文字</div>-->
+<div v-bind:class="[classA, { 'class-b': isB, 'class-c': isC }]">这里是第五个DIV的测试文字</div>
+
+<hr>
+
+<div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px'}">这里是第六个DIV的测试文字</div>
+
+<hr>
+
+<div v-bind:style="styleObject">这里是第七个DIV的测试文字</div>
+<hr>
+
+<div v-bind:style="[styleObject, styleObject1]">这里是第八个DIV的测试文字</div>
+<script src="js/vue.min.js"></script>
+<script>
+    var vm = new Vue({
+        el:'body',
+        data:{
+            isA:true,
+            isB:true,
+            isC:true,
+            classObject:{
+                'class-a': true,
+                'class-b': true
+            },
+            classA: 'class-a',
+            classC: 'class-c',
+            classB: 'class-b',
+            activeColor: 'aquamarine',
+            fontSize: 30,
+            styleObject:{
+                color: 'aquamarine',
+                fontSize: '20px'
+            },
+            styleObject1:{
+                textDecoration: 'underline',
+                border: "1px solid #cef"
+            }
+        }
+    })
+</script>
+</body>
+</html>

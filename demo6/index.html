@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo6</title>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <p v-cloak>{{ message1 }}</p>
+        <input type="text" v-model="message1">
+        <hr>
+        <ul>
+            <li v-cloak v-for="todo in todos">
+                {{ todo.text }}
+            </li>
+        </ul>
+        <hr>
+        <p v-cloak>{{ message2 }}</p>
+        <button @click="reverseMessage">Reverse Message</button>
+        <hr>
+        <div class="comprehensive">
+            <input type="text" v-model="newTodo" @keyup.enter="addTodo">
+            <ul>
+                <li v-for="item in list">
+                    <span>{{ item.text }}</span>
+                    <button @click="removeTodo($index)">X</button>
+                </li>
+            </ul>
+        </div>
+        <hr>
+        <div id="example-1">
+            Hello {{ data1.name }} !
+        </div>
+        <hr>
+        <p v-if="greeting">Hello!</p>
+        <hr>
+        <div id="app-component">
+            <app-nav></app-nav>
+            <app-view>
+                <app-sidebar></app-sidebar>
+                <app-content></app-content>
+            </app-view>
+        </div>
+    </div>
+    <script src="js/vue.min.js"></script>
+    <script>
+        var exampleData = {
+            name: 'Vue.js hello'
+        };
+        var dataText = { a:1 };
+        var MyComponent = Vue.extend({
+        });
+
+        var myComponentInstance = new MyComponent();
+        var vm = new Vue({
+            el: 'body',
+            data: dataText,
+//            data: {
+//                message1: 'Hello Vue.js-02',
+//                todos:[
+//                    { text: 'Learn JavaScript' },
+//                    { text: 'Learn Vue.js' },
+//                    { text:'Build Something Awesome' },
+//                    { text:'Build Something Awesome' },
+//                    { text:'Build Something Awesome' },
+//                    { text:'Build Something Awesome' }
+//                ],
+//                message2:'Hello Vue.js!',
+//                newTodo: '',
+//                list:[
+//                    { text: 'Add some todos'}
+//                ],
+//                data1: exampleData,
+//                greeting: true,
+//                data2: dataText
+//            },
+            methods: {
+                reverseMessage: function () {
+                    this.message2 = this.message2.split('').reverse().join('');
+                },
+                addTodo: function () {
+                    var text = this.newTodo.trim();
+                    if(text){
+                        this.list.push({ text:text });
+                        this.newTodo = '';
+                    }
+                },
+                removeTodo: function (index) {
+                    this.list.splice(index,1)
+                }
+            }
+        });
+        vm.a = 2;
+        dataText.a = 3;
+        console.log(vm.$data === dataText);
+        console.log('000');
+        console.log(vm.$el === document.body);
+        console.log(dataText.a);
+        console.log(vm.a);
+        console.log(vm.a === dataText.a);
+        vm.$watch('a',function (newVal, oldVal) {
+            // 这个回调将在'vm.a' 改变后调用
+        })
+    </script>
+</body>
+</html>
