@@ -1,20 +1,33 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <h1>{{ msg2 }}</h1>
   </div>
 </template>
 
 <script>
 export default {
+  // ES6 的语法
   data () {
     return {
       // note: changing this line won't causes changes
       // with hot-reload because the reloaded component
       // preserves its current state and we are modifying
       // its initial state.
-      msg: 'Hello World!'
+      msg: 'Hello World! Vue.js',
+      msg2: 'Hello Hell'
     }
   }
+
+  // function data() {
+  //   return{
+  //     // note: changing this line won't causes changes
+  //     // with hot-reload because the reloaded component
+  //     // preserves its current state and we are modifying
+  //     // its initial state.
+  //     msg: 'Hello World! Vue.js'
+  //   }
+  // }
 }
 </script>
 
