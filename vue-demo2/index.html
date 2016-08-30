@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue-demo2</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+<div v-cloak>
+    <vue-area :province.sync="currentProvince"></vue-area>
+    <br>
+    <span>省的拼音缩写: {{ currentProvince }}</span>
+</div>
+
+<script src="dist/js/index.js"></script>
+
+<script>
+    new Index();
+</script>
+
+</body>
+</html>

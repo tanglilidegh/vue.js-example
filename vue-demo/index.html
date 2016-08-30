@@ -2,16 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Vue-demo</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
 </head>
+
 <body>
-<p>
-  <vue-area :province.sync = "currentProvince"></vue-area>
-  {{ currentProvince }}
+<p v-cloak>
+    <vue-area :province.sync="currentProvince"></vue-area>
+    <br>
+    <span>省的拼音缩写: {{ currentProvince }}</span>
 </p>
-<script type="text/javascript" src="dist/js/index.js"></script>
+
+<script src="dist/js/index.js"></script>
 <script type="text/javascript">
-  new Index()
+    new Index();
 </script>
+
 </body>
 </html>

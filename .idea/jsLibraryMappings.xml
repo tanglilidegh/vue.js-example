@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <file url="file://$PROJECT_DIR$/demo4" libraries="{vue.js-example/demo4/node_modules}" />
+    <file url="file://$PROJECT_DIR$/demo4/my-project" libraries="{vue.js-example/demo4/my-project/node_modules}" />
+    <file url="file://$PROJECT_DIR$/vue-demo" libraries="{vue.js-example/vue-demo/node_modules}" />
+    <file url="file://$PROJECT_DIR$/vue-demo2" libraries="{vue.js-example/vue-demo2/node_modules}" />
+    <file url="file://$PROJECT_DIR$/vue-demo3" libraries="{vue.js-example/vue-demo3/node_modules}" />
+    <includedPredefinedLibrary name="ECMAScript 6" />
+  </component>
+</project>

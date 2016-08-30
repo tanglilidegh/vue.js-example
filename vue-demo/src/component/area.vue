@@ -3,21 +3,16 @@
     <option>省</option>
     <option v-for="item in provinces" value="{{ item.key }}">{{ item.name }}</option>
   </select>
- <!--  <select>
-    <option>市</option>
-  </select>
-  <select>
-    <option>区</option>
-  </select> -->
 </template>
 
 
 <script>
+  // 导出模块
   export default{
     props: ["province"],
     data(){
       return {
-        provinces: [],
+        provinces: []
       }
     },
     methods:{
@@ -30,9 +25,17 @@
           {
             name: '河南省',
             key: 'hn'
+          },
+          {
+            name: '浙江省',
+            key: 'zj'
+          },
+          {
+            name: '福建省',
+            key: 'fj'
           }
-        ]
-        this.provinces = ps
+        ];
+        this.provinces = ps;
       }
     },
     created(){

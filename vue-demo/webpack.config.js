@@ -1,7 +1,6 @@
 /**
  * Created by tanglili on 16/8/20.
  */
-
 var webpack = require("webpack");
 
 module.exports = {
@@ -9,6 +8,7 @@ module.exports = {
         index: './src/js/index.js'
     },
     output: {
+        // __dirname 始终指向当前js代码文件的目录
         path: __dirname + '/dist/js',
         filename: "[name].js"
     },
@@ -30,6 +30,7 @@ module.exports = {
         ]
     },
     plugins: [
+        // 限制打包文件的个数
         new webpack.optimize.LimitChunkCountPlugin({maxChunks: 1})
     ]
 };

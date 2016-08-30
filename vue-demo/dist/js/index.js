@@ -51,19 +51,21 @@
 	var Vue = __webpack_require__(1);
 	var Area = __webpack_require__(3);
 
-	var Index = function Index() {
-	  _classCallCheck(this, Index);
+	// 注册组件
 
-	  new Vue({
-	    el: "body",
-	    data: {
-	      test: "Hello World !",
-	      currentProvince: 'sc'
-	    },
-	    components: {
-	      'vue-area': Area
-	    }
-	  });
+	var Index = function Index() {
+	    _classCallCheck(this, Index);
+
+	    new Vue({
+	        el: "body",
+	        data: {
+	            test: "Hello World !",
+	            currentProvince: 'sc'
+	        },
+	        components: {
+	            'vue-area': Area
+	        }
+	    });
 	};
 
 	window.Index = Index;
@@ -10334,7 +10336,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-1a4347c1/area.vue"
+	  var id = "_v-2bed0f6a/area.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -10367,6 +10369,12 @@
 	      }, {
 	        name: '河南省',
 	        key: 'hn'
+	      }, {
+	        name: '浙江省',
+	        key: 'zj'
+	      }, {
+	        name: '福建省',
+	        key: 'fj'
 	      }];
 	      this.provinces = ps;
 	    }
@@ -10380,7 +10388,7 @@
 /* 5 */
 /***/ function(module, exports) {
 
-	module.exports = "\n <select v-model=\"province\">\n   <option>省</option>\n   <option v-for=\"item in provinces\" value=\"{{ item.key }}\">{{ item.name }}</option>\n </select>\n<!--  <select>\n   <option>市</option>\n </select>\n <select>\n   <option>区</option>\n </select> -->\n";
+	module.exports = "\n<select v-model=\"province\">\n  <option>省</option>\n  <option v-for=\"item in provinces\" value=\"{{ item.key }}\">{{ item.name }}</option>\n</select>\n";
 
 /***/ }
 /******/ ]);
