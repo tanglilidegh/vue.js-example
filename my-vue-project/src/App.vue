@@ -3,11 +3,14 @@
     <h1>{{ title }}</h1>
     <input v-model="newItem" v-on:keyup.enter="addNew">
     <ul>
+
       <li v-for="item in items"  v-bind:class="{ finished: item.isFinished}" v-on:click="toggleFinish(item)">
-      <!-- v-bind:class="[liClass]" class="finished" -->
       {{ item.label }}
       </li>
+
     </ul>
+    <p>child tells me: {{ childWords }}</p>
+    <components-a msgfromfather='you die!'></components-a>
   </div>
 </template>
 
@@ -15,43 +18,31 @@
 // module.export = {
 
 // }  ES6的语法
-
+import ComponentsA from './components/componentsA'
 import Store from './store'
-//export default{ // .... } <==> new Vue({
-    //el:'',
-    //data:{}
-//})
 export default {
   data: function () {
     return{
-      // msg: 'Hello World!',
-      // msg2: 'Hello hell'
       title: 'this is a todo list',
-      items: [
-      // {
-      //   label: 'coding',
-      //   isFinished: true
-      // },
-      // {
-      //   label: 'walking',
-      //   isFinished: true
-      // }
-      ],
-      // liClass: "finished",
-      newitem: ''
+      items: Store.fetch(),
+      newitem: '',
+      childWords: ''
     }
-
   },
+  components:{ ComponentsA },
   watch: {
-
+    items: {
+      handler: function (items) {
+        Store.save(items);
+      },
+      deep: true
+    }
   },
-  // ES6的语法
-  // data(){
-  //   return{
-  //     msg: 'Hello World!',
-  //     msg2: 'Hello hell'
-  //   }
-  // }
+  events: {
+    'child-tell-me-something': function (msg) {
+      this.childWords = msg;
+    }
+  },
   methods:{
     toggleFinish: function (item) {
       item.isFinished = !item.isFinished
@@ -60,8 +51,11 @@ export default {
       this.items.push({
         label: this.newItem,
         isFinished: false
-      })
+      });
       this.newItem = '';
+    },
+    listenToMyBoy: function (msg) {
+      this.childWords = msg;
     }
   }
 }
